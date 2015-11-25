@@ -1,0 +1,23 @@
+<span>{{:: field.label }}</span>
+<br />
+<!-- Checkbox list -->
+<div ng-if="field.multiType === 1" ng-repeat="item in field.items">
+    <input id="checkbox_{{:: $index + '_' + $id }}" name="checkbox_{{:: field.id }}" type="checkbox" value="{{ item.value }}" />
+    <label for="checkbox_{{ :: $index + '_' + $id }}">{{ item.text }}</label>
+</div>
+
+<!-- Radio button list -->
+<div ng-if="field.multiType === 2" ng-repeat="item in field.items">
+    <input id="radiobutton_{{ :: $index + '_' + $id }}" name="radiobutton_{{:: field.id }}" type="radio" value="{{ item.value }}" />
+    <label for="radiobutton_{{ :: $index + '_' + $id }}">{{ item.text }}</label>
+</div>S
+
+<!--
+        data-ng-attr-size
+        is a work around because size can't be set to an expression in angular
+        https://github.com/angular/angular.js/issues/1619
+      -->
+<!-- drop down and list box -->
+<select ng-if="field.multiType === 3 || field.multiType === 4" data-ng-attr-size="{{ resolveSize() }}">
+    <option ng-repeat="item in field.items" value="item.value">{{ item.text }}</option>
+</select>
