@@ -1,4 +1,14 @@
 <h1>
     {{:: form.Name }}
 </h1>
-<ig-section-render ng-repeat="section in ::form.Sections" section="section"></ig-section-render>
+<ion-slide-box delegate-handle="ig-form-slide-box" class="ig-slide-box" show-pager="false" on-slide-changed="updateSlideIndex($index)">
+    <ion-slide class="ig-slider-slides" ng-repeat="section in ::form.Sections">
+        <ig-section-render section="section"></ig-section-render>
+    </ion-slide>
+</ion-slide-box>
+<div class="ig-pager">
+    <span ng-repeat="section in ::form.Sections" >
+        <i class="icon ion-record" ng-class="{'active': $index === currentSlideIndex}">
+        </i>
+    </span>
+</div>

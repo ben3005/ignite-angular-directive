@@ -50,7 +50,15 @@
           "Properties": {
             "CustomValidation": 2
           }
-        },
+        }
+      ]
+    },
+    {
+      "SectionID": 9338,
+      "SectionTitle": "More Details",
+      "HideOutline": false,
+      "LockSection": false,
+      "Fields": [
         {
           "FieldID": 42885,
           "FieldName": "Email Address",

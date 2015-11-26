@@ -9075,3 +9075,16 @@ a.button {
 
 textarea {
   resize: none; }
+
+/*
+    overides
+*/
+.ig-pager {
+  position: fixed;
+  bottom: 0; }
+
+.ig-pager i {
+  opacity: 0.3; }
+
+.ig-pager i.active {
+  opacity: 1; }
