@@ -1,0 +1,14 @@
+{
+  "name": "ignite-angular-directive",
+  "private": true,
+  "dependencies": {
+    "ionic": "~1.1.1"
+  },
+  "overrides": {
+    "ionic": {
+      "main": [
+        "release/js/ionic.bundle.js"
+      ]
+    }
+  }
+}

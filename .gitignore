@@ -1,0 +1,14 @@
+node_modules/
+.sass_cache/
+*.scssc
+*.log
+*.swo
+*.DS_Store
+*.swp
+www/.sass_cache/
+platforms/
+platforms-backup/
+bower_components/
+plugins/
+*.apk
+*.idea
