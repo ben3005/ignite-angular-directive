@@ -1,0 +1,22 @@
+<span>{{:: field.FieldName }}</span>
+<br />
+<table>
+    <thead>
+        <tr>
+            <th ng-repeat="column in ::field.Columns">{{:: column.ColumnName }}</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="{{:: field.Columns.length }}">
+                <span> Add new row </span>
+            </td>
+            <td>
+                <i class="icon ion-plus-circled"></i>
+            </td>
+        </tr>
+    </tfoot>
+</table>

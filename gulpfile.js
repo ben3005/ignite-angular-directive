@@ -33,8 +33,11 @@ gulp.task('watch', function () {
     gulp.watch(paths.sass, ['sass']);
 });
 
+gulp.task('clean-demo', function () {
+    return del(config.demo + 'js/**/*');
+});
 
-gulp.task('copy-src', function () {
+gulp.task('copy-src', ['clean-demo'] ,function () {
     return gulp
         .src(config.allsrc)
         .pipe(gulp.dest(config.demo + 'js/'));

@@ -3,29 +3,40 @@
 
     var directives = angular.module('directive-test.directives');
 
-    directives.directive('igFormRender', ['$ionicSlideBoxDelegate', '$timeout', function ($ionicSlideBoxDelegate, $timeout) {
+    directives.directive('igFormRender', ['$document', function ($document) {
         var directiveDefinition = {
             restrict: 'E',
-            scope: {
+            scope: true,
+            controller: function ($element, $attrs, $transclude, $window) {
+                this.currentSlideIndex = 0;
+                this.pagerHeight = 20;
+                this.pagerTop = $window.innerHeight - this.pagerHeight;
+            },
+            controllerAs: 'FormRender',
+            bindToController: {
                 form: '='
             },
-            link: function (scope, element, attrs, controller, transcludeFn) {
-                scope.$on('$ionicView.enter', function () {
-                    $timeout(function () {
-                        $ionicSlideBoxDelegate.$getByHandle('ig-form-slide-box').update();
-                    }, 0)
-                });
+            compile: function compile(tElement, tAttrs) {
+                return {
+                    pre: function preLink(scope, iElement, iAttrs, controller, transcludeFn) {
+                        
+                    },
+                    post: function postLink(scope, iElement, iAttrs, controller, transcludeFn) {
+                        if (!$document.find('ig-section-pager').length)
+                            throw 'ignite form render requires ig-section-pager to place the pager!';
 
-                scope.currentSlideIndex = 0;
+                        $document.find('ig-section-pager').append(iElement.children()[2]);
 
-                scope.updateSlideIndex = function ($index) {
-                    console.log($index);
-                    scope.currentSlideIndex = $index;
+                        controller.updateSlideIndex = function ($index) {
+                            controller.currentSlideIndex = $index;
+                        };
+
+                        // From angular docs, Best Practice to clean up when directive is removed
+                        scope.$on('$destroy', function () {
+
+                        });
+                    }
                 };
-                // From angular docs, Best Practice to clean up when directive is removed
-                scope.$on('$destroy', function () {
-
-                });
             },
             templateUrl: 'js/directives/ig-form-render/ig-form-render.html'
         };

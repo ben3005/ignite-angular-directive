@@ -1,18 +1,23 @@
-
-
 @import "ionic";
-
-textarea {
-    resize: none;
-}
 
 /*
     overides
 */
 
+.ig-slide-box .slider-slides {
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+
 .ig-pager {
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    text-align: center;
+    background-color: $royal;
+    width: 100%;
+    height: 20px;
 }
 
 .ig-pager i {

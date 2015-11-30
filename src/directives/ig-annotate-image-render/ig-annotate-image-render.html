@@ -1,0 +1,35 @@
+<span>{{:: field.FieldName }}</span>
+<br />
+<div class="attwrap">
+    <label class="errlabel" id="errlabel' + myRootFieldID + '">
+        <span>field.FieldText</span>
+        <span class="errlabel" ><i class="icon ion-alert-circled"></i></span>
+    </label>
+    <div class="annotateimage">
+        <div class="drawwidget" id="annotatewidget' + field.FieldID + '" ng-class="{ 'unlocked' : currentAnnotateID === field.FieldID }">
+            <div class="drawcontrols">
+                <i class="pencil" ng-class="{dpactive : !drawpadcontrols.' + field.FieldID + '.erasing}" ng-click="drawmode()"><img src="img/ic_pencil-01.svg" /></i>
+                <i class="eraser" ng-class="{dpactive : drawpadcontrols.' + field.FieldID + '.erasing}" ng-click="erasemode()"><img src="img/ic_eraser-01.svg" /></i>
+                <i class="size" ng-click="sizepallette()"><span class="{{ drawsize + drawpadcontrols.' + field.FieldID + '.size}}"><span>&nbsp;</span></span><img src="img/ic_arrow-01.svg" /></i>
+                <i class="color" ng-click="colorpallette()"><span class="{{colornum + drawpadcontrols.' + field.FieldID + '.color}}"><span>&nbsp;</span></span><img src="img/ic_arrow-01.svg" /></i>
+                <i class="bin" ng-click="cleardrawing()"><img src="img/ic_litter-01.svg" /></i>
+                <i class="lock" ng-class="{locked : currentAnnotateID!=' + field.FieldID + '}" ng-click="annotateLock(' + myModel + ')">
+                    <img ng-show="currentAnnotateID==' + field.FieldID + '" src="img/unlocked-icon.svg" />
+                    <img ng-show="currentAnnotateID!=' + field.FieldID + '" src="img/locked-icon.svg" />
+                </i>
+            </div>
+            <div class="annotatechooserwrap" ng-class="{menuopen : showdrawmenu}">
+                <div class="annotatechooser size" ng-class="{menuopen : showdrawmenu === size}" onclick="event.preventDefault(); event.stopPropagation(); ">
+                    <span ng-repeat="sznum in [1,2,3,4,5]" class="achooseitem drawsize{{sznum}}" ng-click="setdrawsize($event,sznum)" ng-class="{currentsize : drawpadcontrols.' + field.FieldID + '.size==sznum}"><span>&nbsp;</span></span>
+                </div>
+                <div class="annotatechooser color" ng-class="{\'menuopen\':showdrawmenu==\'color\'}">
+                    <span ng-repeat="cnum in [9,8,7,6,5,4,3,2,1]" class="achooseitem colornum{{cnum}}" ng-click="setdrawcolor($event,cnum)" ng-class="{ currentcolor : drawpadcontrols.' + field.FieldID + '.color==cnum}"><span>&nbsp;</span></span>
+                </div>
+            </div>
+            <div class="annotateoverflowsafety">
+                <img id="annotatableimg' + field.FieldID + '" class="annotatable" src="data:image/png;base64,' + field.AnnotateImage + '" />
+                <img id="annotation' + field.FieldID + '" ng-show="' + myModel + '.Text  && (currentAnnotateID!=' + field.FieldID + ')" class="annotation" ng-src="{{' + myModel + '.Text}}" />
+            </div>
+        </div>
+    </div>
+</div>

@@ -9073,15 +9073,21 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-textarea {
-  resize: none; }
-
 /*
     overides
 */
+.ig-slide-box .slider-slides {
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row; }
+
 .ig-pager {
-  position: fixed;
-  bottom: 0; }
+  position: absolute;
+  text-align: center;
+  background-color: #886aea;
+  width: 100%;
+  height: 20px; }
 
 .ig-pager i {
   opacity: 0.3; }
