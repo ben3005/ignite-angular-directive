@@ -9082,15 +9082,441 @@ a.button {
   -webkit-flex-direction: row;
   flex-direction: row; }
 
+/*
+    Custom CSS
+*/
 .ig-pager {
   position: absolute;
   text-align: center;
   background-color: #886aea;
   width: 100%;
-  height: 20px; }
+  height: 20px;
+  bottom: 0; }
 
 .ig-pager i {
   opacity: 0.3; }
 
 .ig-pager i.active {
   opacity: 1; }
+
+.ig-annotate-draw-menu {
+  padding: 0.5em;
+  z-index: 101; }
+
+.ig-annotate-draw-menu-item {
+  width: 2.4em;
+  height: 2.4em;
+  display: inline-block;
+  border-radius: 5px;
+  border: 2px solid #858585;
+  float: left;
+  line-height: 2.7em;
+  text-align: center; }
+
+.ig-annotate-pencil {
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><g fill-rule="evenodd" clip-rule="evenodd" fill="#3B434C"><path d="M26.88 113l8.137-28.484 20.346 20.346L26.88 113zM111.732 40.438l-11.627-11.65a6.09 6.09 0 0 0-8.613-.01L38.772 81.4 59 101.668l52.722-52.617a6.09 6.09 0 0 0 .008-8.612zM81.455 66.015l-6.98-6.993L94.15 39.387l6.98 6.993-19.675 19.635z"/></g></svg>');
+  background-size: cover;
+  float: left;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.ig-annotate-eraser {
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><path fill-rule="evenodd" clip-rule="evenodd" fill="#3B434C" d="M113.317 109.36H49.74L26.684 85.812 79.578 31.39l33.4 34.363-34.755 35.933h35.094v7.674zm-33.4-20.408L57.03 65.578 37.364 85.812l15.428 15.874h14.75l12.376-12.734z"/></svg>');
+  background-size: cover;
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-right: 0.7em; }
+
+.ig-annotate-eraser::after {
+  clear: both; }
+
+.ig-annotate-arrow {
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><path fill-rule="evenodd" clip-rule="evenodd" fill="#3B434C" d="M107.068 135h27.93v-27.932l-27.93 27.93z"/></svg>');
+  background-size: cover;
+  background-position: bottom right;
+  margin-right: 10px; }
+
+.ig-annotate-bin {
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><path fill="#3B434C" d="M103.404 31h-6.45c-1.508 0-3.868.08-6.82.076l-1.287-9.313C88.473 19.06 87.167 17 84.44 17H55.56c-2.726 0-4.437 1.903-4.81 4.61L49.675 31h-13.08C31.26 31 27 35.538 27 40.875V46h86v-5.125c0-5.337-4.26-9.875-9.596-9.875zM56 23h28v8.176c-8-.003-20 .016-28 .035V23zM31 50v65.405c0 5.092 4.128 9.595 9.22 9.595h59.56c5.092 0 9.22-4.503 9.22-9.595V50H31zm25 64H46V61h10v53zm19 0H65V61h10v53zm19 0H84V61h10v53z"/></svg>');
+  background-size: cover; }
+
+.ig-annotate-locked {
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#FFF" d="M145.333 223.333v-62.666C145.333 99.645 194.98 50 256 50c61.022 0 110.667 49.645 110.667 110.667v62.666h-50v-62.666C316.667 127.215 289.452 100 256 100s-60.667 27.215-60.667 60.667v62.666h-50zm-37.333 30V462h296V253.333H108z"/></svg>');
+  background-size: cover;
+  background-color: #858585;
+  float: right; }
+
+.ig-annotate-unlocked {
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#3B434C" d="M221.333 223.333v-62.666c0-33.452-27.215-60.667-60.666-60.667S100 127.215 100 160.667v62.666H50v-62.666C50 99.645 99.647 50 160.668 50s110.666 49.645 110.666 110.667v62.666h-50zm-55.334 30V462h296V253.333H166z"/></svg>');
+  background-size: cover; }
+
+.ig-annotate-drop-menu-wrap {
+  position: absolute;
+  margin-top: 2.1em;
+  padding-left: 0.5em;
+  z-index: 100; }
+
+.ig-annotate-drop-menu {
+  background-color: white;
+  border: 2px solid #858585;
+  border-radius: 5px;
+  padding: 0.25em;
+  position: relative; }
+
+.ig-annotate-drop-menu::before {
+  border-color: #858585 transparent;
+  border-style: solid;
+  border-width: 0 12px 12px;
+  top: -12px;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0; }
+
+.ig-annotate-drop-menu::after {
+  border-color: #fff transparent;
+  border-style: solid;
+  border-width: 0 8px 8px;
+  top: -8px;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0; }
+
+.ig-draw-menu-item {
+  display: inline-block;
+  margin: 0.25em; }
+
+.ig-draw-menu-item span {
+  height: 1.7em;
+  width: 1.7em;
+  display: block; }
+
+.ig-annotate-drop-size-menu::before {
+  left: 5.7em; }
+
+.ig-annotate-drop-size-menu::after {
+  left: 6em; }
+
+.ig-annotate-drop-colour-menu::before {
+  left: 8.8em; }
+
+.ig-annotate-drop-colour-menu::after {
+  left: 9.1em; }
+
+.ig-draw-colour1 span, .ig-annotate-current-colour.ig-draw-colour1 {
+  background-color: #000000;
+  border: 1px solid #858585; }
+
+.ig-draw-colour2 span, .ig-annotate-current-colour.ig-draw-colour2 {
+  background-color: #ffffff;
+  border: 1px solid #858585; }
+
+.ig-draw-colour3 span, .ig-annotate-current-colour.ig-draw-colour3 {
+  background-color: #e6007e;
+  border: 1px solid #858585; }
+
+.ig-draw-colour4 span, .ig-annotate-current-colour.ig-draw-colour4 {
+  background-color: #724d92;
+  border: 1px solid #858585; }
+
+.ig-draw-colour5 span, .ig-annotate-current-colour.ig-draw-colour5 {
+  background-color: #3798dc;
+  border: 1px solid #858585; }
+
+.ig-draw-colour6 span, .ig-annotate-current-colour.ig-draw-colour6 {
+  background-color: #52b36e;
+  border: 1px solid #858585; }
+
+.ig-draw-colour7 span, .ig-annotate-current-colour.ig-draw-colour7 {
+  background-color: #e33c35;
+  border: 1px solid #858585; }
+
+.ig-draw-colour8 span, .ig-annotate-current-colour.ig-draw-colour8 {
+  background-color: #e67f22;
+  border: 1px solid #858585; }
+
+.ig-draw-colour9 span, .ig-annotate-current-colour.ig-draw-colour9 {
+  background-color: #f1c40f;
+  border: 1px solid #858585; }
+
+.ig-annotate-current-colour {
+  border: 0 !important;
+  content: "\007C\00a0\00a0";
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em; }
+
+.ig-annotate-drop-menu-active {
+  border: 1px solid #858585; }
+
+.ig-annotate-drop-menu-active span {
+  border: 1px solid transparent;
+  margin: 1px; }
+
+.ig-annotate-draw-active {
+  box-shadow: inset -1px 1px 4px 1px rgba(0, 0, 100, 0.2); }
+
+.ig-draw-size1 {
+  border-radius: 50%;
+  background-color: black;
+  height: 3px;
+  width: 3px;
+  margin-right: 7px;
+  /*margin-top: 7.5px;
+    margin-right: 7px;
+    border: 0;
+    position: relative;
+    float: left;*/ }
+
+.ig-draw-size2 {
+  background-color: black;
+  border-radius: 50%;
+  height: 6px;
+  width: 6px;
+  margin-right: 7px;
+  /*margin-top: 6px;
+    border: 0;
+    position: relative;
+    float: left;*/ }
+
+.ig-draw-size3 {
+  background-color: black;
+  border-radius: 50%;
+  height: 9px;
+  width: 9px;
+  margin-right: 7px;
+  /*margin-top: 4.5px;
+    margin-right: 7px;
+    border: 0;
+    position: relative;
+    float: left;*/ }
+
+.ig-draw-size4 {
+  background-color: black;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  margin-right: 7px;
+  /*margin-top: 3px;
+    margin-right: 7px;
+    border: 0;
+    position: relative;
+    float: left;*/ }
+
+.ig-draw-size5 {
+  background-color: black;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  margin-right: 7px;
+  /*margin-top: 1.5px;
+    margin-right: 7px;
+    border: 0;
+    position: relative;
+    float: left;*/ }
+
+/*.ig-annotate-arrow .ig-annotate-current-colour {
+    margin: 0.36em;
+    width: 1.4em;
+    height: 1.4em;
+    display: inline-block;
+    border: 0;
+}
+
+.ig-annotate-arrow .ig-annotate-current-size {
+    border: 0;
+    border-radius: 50%;
+}
+
+
+.ig-annotate-image {
+    padding-top: 3.5em;
+}
+
+.ig-annotate-draw-menu {
+    width: 100%;
+    float: left;
+    position: absolute;
+    padding: 0.5em;
+    z-index: 101;
+}
+
+.ig-annotate-draw-menu-item {
+    width: 2.4em;
+    height: 2.4em;
+    display: inline-block;
+    border: 2px solid $light-grey;
+    margin-right: 0.7em;
+    float: left;
+    border-radius: 5px;
+}
+
+.ig-annotate-draw-active {
+    box-shadow: inset -1px 1px 4px 1px rgba(0, 0, 100, 0.2);
+}
+
+.ig-annotate-drop-menu-wrap {
+    position: absolute;
+    padding-top: 3.5em;
+    padding-left: 0.5em;
+    z-index: 100;
+}
+
+.ig-annotate-drop-menu {
+    float: left;
+    background-color: white;
+    border: 2px solid $light-grey;
+    border-radius: 5px;
+    padding: 0.25em;
+    position: relative;
+}
+
+.ig-annotate-drop-menu::before {
+    border-color: $light-grey transparent;
+    border-style: solid;
+    border-width: 0 12px 12px;
+    top: -12px;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+}
+
+.ig-annotate-drop-menu::after {
+    border-color: #fff transparent;
+    border-style: solid;
+    border-width: 0 8px 8px;
+    top: -8px;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+}
+
+.ig-annotate-drop-size-menu::before {
+    left: 80px;
+}
+
+.ig-annotate-drop-size-menu::after {
+    left: 84px;
+}
+
+.ig-annotate-drop-colour-menu::before {
+    left: 122px;
+}
+
+.ig-annotate-drop-colour-menu::after {
+    left: 126px;
+}
+
+.ig-draw-menu-item {
+    height: 1.7em;
+    width: 1.7em;
+    display: inline-block;
+    border: 1px solid $light-grey;
+    padding: 1px;
+    margin: 0.25em;
+}
+
+.ig-annotate-drop-menu-active {
+    border: 2px solid $light-grey;
+    padding: 0;
+}
+
+.ig-draw-colour1 {
+    background-color: #000000;
+}
+
+.ig-draw-colour2 {
+    background-color: #ffffff;
+}
+
+.ig-draw-colour3 {
+    background-color: #e6007e;
+}
+
+.ig-draw-colour4 {
+    background-color: #724d92;
+}
+
+.ig-draw-colour5 {
+    background-color: #3798dc;
+}
+
+.ig-draw-colour6 {
+    background-color: #52b36e;
+}
+
+.ig-draw-colour7 {
+    background-color: #e33c35;
+}
+
+.ig-draw-colour8 {
+    background-color: #e67f22;
+}
+
+.ig-draw-colour9 {
+    background-color: #f1c40f;
+}
+
+.ig-draw-size1 {
+    margin-top: 7.5px;
+    margin-right: 7px;
+    height: 3px;
+    width: 3px;
+    background-color: black;
+    border: 0;
+    border-radius: 50%;
+    position: relative;
+    float: left;
+}
+
+.ig-draw-size2 {
+    margin-top: 6px;
+    margin-right: 7px;
+    height: 6px;
+    width: 6px;
+    background-color: black;
+    border: 0;
+    border-radius: 50%;
+    position: relative;
+    float: left;
+}
+
+.ig-draw-size3 {
+    margin-top: 4.5px;
+    margin-right: 7px;
+    height: 9px;
+    width: 9px;
+    border: 0;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+    float: left;
+}
+
+.ig-draw-size4 {
+    margin-top: 3px;
+    margin-right: 7px;
+    height: 12px;
+    width: 12px;
+    background-color: black;
+    border: 0;
+    border-radius: 50%;
+    position: relative;
+    float: left;
+}
+
+.ig-draw-size5 {
+    margin-top: 1.5px;
+    margin-right: 7px;
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    border: 0;
+    border-radius: 50%;
+    position: relative;
+    float: left;
+}*/

@@ -10,7 +10,6 @@
             controller: function ($element, $attrs, $transclude, $window) {
                 this.currentSlideIndex = 0;
                 this.pagerHeight = 20;
-                this.pagerTop = $window.innerHeight - this.pagerHeight;
             },
             controllerAs: 'FormRender',
             bindToController: {

@@ -6,7 +6,7 @@
         <ig-section-render section="::section"></ig-section-render>
     </ion-slide>
 </ion-slide-box>
-<div class="ig-pager" ng-style="::{ top: FormRender.pagerTop + 'px' }">
+<div class="ig-pager" ng-style="{ top: FormRender.pagerTop + 'px' }">
     <span ng-repeat="section in ::form.Sections">
         <i class="icon ion-record" ng-class="{'active': $index === FormRender.currentSlideIndex}">
         </i>
