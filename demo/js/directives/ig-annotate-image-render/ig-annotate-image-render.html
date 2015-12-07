@@ -1,15 +1,15 @@
 <span>{{:: field.FieldName }}</span>
 <br />
-<div class="attwrap">
+<div>
     <label class="errlabel" id="errlabel{{myRootFieldID}}">
         <span>{{:: field.FieldText }}</span>
         <span class="errlabel"><i class="ion-alert-circled"></i></span>
     </label>
-    <div class="annotateimage">
-        <div class="drawwidget" id="annotatewidget{{:: field.FieldID }}" ng-class="{ 'unlocked' : !AnnotateImageRender.locked }">
+    <div>
+        <div class="ig-annotate-draw-widget" ng-class="{ 'ig-annotate-active' : !AnnotateImageRender.locked }" ng-disabled="AnnotateImageRender.locked">
             <div class="ig-annotate-draw-menu">
-                <div class="ig-annotate-draw-menu-item ig-annotate-pencil" ng-class="{'ig-annotate-draw-active' : !AnnotateImageRender.erasing}" ng-click="AnnotateImageRender.erasing = !AnnotateImageRender.erasing"></div>
-                <div class="ig-annotate-draw-menu-item ig-annotate-eraser" ng-class="{'ig-annotate-draw-active' : AnnotateImageRender.erasing}" ng-click="AnnotateImageRender.erasing = !AnnotateImageRender.erasing"></div>
+                <div class="ig-annotate-draw-menu-item ig-annotate-pencil" ng-class="{'ig-annotate-draw-active' : !AnnotateImageRender.erasing}" ng-click="AnnotateImageRender.drawMode()"></div>
+                <div class="ig-annotate-draw-menu-item ig-annotate-eraser" ng-class="{'ig-annotate-draw-active' : AnnotateImageRender.erasing}" ng-click="AnnotateImageRender.eraseMode()"></div>
                 <div class="ig-annotate-draw-menu-item ig-annotate-arrow" ng-click="AnnotateImageRender.toggleSizeMenu()">
                     <span class="ig-annotate-current-size" ng-class="'ig-draw-size' + AnnotateImageRender.drawSize"></span>
                 </div>
@@ -21,19 +21,21 @@
             </div>
             <div class="ig-annotate-drop-menu-wrap">
                 <div class="ig-annotate-drop-menu ig-annotate-drop-size-menu" ng-show="AnnotateImageRender.drawMenuType === 'size'">
-                    <span ng-repeat="drawSize in :: AnnotateImageRender.penSizes" class="ig-draw-menu-item ig-draw-size{{:: drawSize}}" ng-click="AnnotateImageRender.setDrawSize(drawSize)" ng-class="{ 'ig-annotate-drop-menu-active' : AnnotateImageRender.drawSize === drawSize}">
+                    <span ng-repeat="drawSize in :: AnnotateImageRender.penSizes" class="ig-draw-menu-item ig-draw-size{{:: drawSize}}" ng-click="AnnotateImageRender.setDrawSize($event,drawSize)" ng-class="{ 'ig-annotate-drop-menu-active' : AnnotateImageRender.drawSize === drawSize}">
                         <span>&nbsp;</span>
                     </span>
                 </div>
                 <div class="ig-annotate-drop-menu ig-annotate-drop-colour-menu" ng-show="AnnotateImageRender.drawMenuType === 'colour'">
-                    <span ng-repeat="colourNum in :: AnnotateImageRender.penColours" class="ig-draw-menu-item ig-draw-colour{{:: colourNum}}" ng-click="AnnotateImageRender.setDrawColour(colourNum)" ng-class="{ 'ig-annotate-drop-menu-active' : AnnotateImageRender.colourNum === colourNum}">
+                    <span ng-repeat="colourNum in :: AnnotateImageRender.penColours" class="ig-draw-menu-item ig-draw-colour{{:: colourNum}}" ng-click="AnnotateImageRender.setDrawColour($event,colourNum)" ng-class="{ 'ig-annotate-drop-menu-active' : AnnotateImageRender.colourNum === colourNum}">
                         <span>&nbsp;</span>
                     </span>
                 </div>
             </div>
-            <div class="ig-annotate-image">
-                <img id="annotatableimg{{:: field.FieldID }}" class="annotatable" data-ng-src="data:image/png;base64,{{:: field.AnnotateImage}}" />
-                <img id="annotation{{:: field.FieldID }}" ng-show="myModel.Text  && AnnotateImageRender.locked" class="annotation" ng-src="{{myModel.Text}}" />
+            <div class="ig-annotate-image" ng-style=":: AnnotateImageRender.annotateImageHeightStyle ">
+                <div id="igAnnotateImage{{:: field.FieldID }}" class="ig-annotate-image-inner">
+                    <img id="igAnnotatableImage{{:: field.FieldID }}" data-ng-src="data:image/png;base64,{{:: field.AnnotateImage}}" />
+                    <img id="igAnnotation{{:: field.FieldID }}" ng-show="myModel.Text  && AnnotateImageRender.locked" class="annotation" ng-src="{{myModel.Text}}" />
+                </div>
             </div>
         </div>
     </div>
