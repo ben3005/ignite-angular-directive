@@ -2,7 +2,7 @@
   "name": "ignite-angular-directive",
   "private": true,
   "dependencies": {
-    "ionic": "~1.1.1",
+    "ionic": "^1.2.0",
     "signature_pad": "^1.5.2"
   },
   "overrides": {
@@ -13,7 +13,7 @@
     },
     "signature_pad": {
       "main": [
-        "signature_pad.min.js"
+        "signature_pad.js"
       ]
     }
   }

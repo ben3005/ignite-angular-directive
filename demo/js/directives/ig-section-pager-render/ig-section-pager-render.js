@@ -17,10 +17,10 @@
                     pre: function preLink(scope, iElement, iAttrs, controller, transcludeFn) {
                     },
                     post: function postLink(scope, iElement, iAttrs, controller, transcludeFn) {
-                        if (iElement.parent().find('ion-content').length)
-                            iElement.parent().find('ion-content').css('margin-bottom', '20px');
-                        else
-                            iElement.css('display', 'none');
+                        //if (iElement.parent().find('ion-content').length)
+                        //    iElement.parent().find('ion-content').css('margin-bottom', '20px');
+                        //else
+                        //    iElement.css('display', 'none');
                     }
                 };
             },

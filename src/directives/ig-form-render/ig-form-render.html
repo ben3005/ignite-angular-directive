@@ -1,14 +1,17 @@
-<h1>
-    {{:: form.Name }}
-</h1>
-<ion-slide-box delegate-handle="ig-form-slide-box" class="ig-slide-box" show-pager="false" on-slide-changed="FormRender.updateSlideIndex($index)">
-    <ion-slide class="ig-slider-slides" ng-repeat="section in ::form.Sections">
+<!--
+    
+    delegate-handle="ig-form-slide-box" class="ig-slide-box" show-pager="false" on-slide-changed="FormRender.updateSlideIndex($index)"
+
+     class="ig-slider-slides"
+-->
+<ion-slides options="::form.swiperOptions" slider="form.slider">
+    <ion-slide-page ng-repeat="section in ::form.Sections">
         <ig-section-render section="::section"></ig-section-render>
-    </ion-slide>
-</ion-slide-box>
-<div class="ig-pager" ng-style="{ top: FormRender.pagerTop + 'px' }">
+    </ion-slide-page>
+</ion-slides>
+<!--<div class="ig-pager" ng-style="{ top: FormRender.pagerTop + 'px' }">
     <span ng-repeat="section in ::form.Sections">
         <i class="icon ion-record" ng-class="{'active': $index === FormRender.currentSlideIndex}">
         </i>
     </span>
-</div>
+</div>-->

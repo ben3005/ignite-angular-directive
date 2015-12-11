@@ -31,10 +31,10 @@
                     </span>
                 </div>
             </div>
-            <div class="ig-annotate-image" ng-style=":: AnnotateImageRender.annotateImageHeightStyle ">
+            <div class="ig-annotate-image" ng-style="AnnotateImageRender.annotateImageStyle">
                 <div id="igAnnotateImage{{:: field.FieldID }}" class="ig-annotate-image-inner">
                     <img id="igAnnotatableImage{{:: field.FieldID }}" data-ng-src="data:image/png;base64,{{:: field.AnnotateImage}}" />
-                    <img id="igAnnotation{{:: field.FieldID }}" ng-show="myModel.Text  && AnnotateImageRender.locked" class="annotation" ng-src="{{myModel.Text}}" />
+                    <img id="igAnnotation{{:: field.FieldID }}" ng-if="AnnotateImageRender.field.Text && AnnotateImageRender.locked" ng-style="AnnotateImageRender.annotateImageStyle" data-ng-src="{{ AnnotateImageRender.field.Text }}" />
                 </div>
             </div>
         </div>

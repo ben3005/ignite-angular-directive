@@ -7,11 +7,16 @@
     overides
 */
 
-.ig-slide-box .slider-slides {
+/*.ig-slide-box .slider-slides {
     display: flex;
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
+}*/
+
+.swiper-slide {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 /*
