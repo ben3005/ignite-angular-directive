@@ -1,6 +1,6 @@
 module.exports = function () {
     var src = 'src/';
-    var demo = 'demo/';
+    var demo = 'www/';
     var root = './';
     var wiredep = require('wiredep');
     var bowerFiles = wiredep({ devDependencies: true })['js'];
@@ -90,7 +90,7 @@ module.exports = function () {
     config.getInjectJSOptions = function () {
         var options = {
             transform: function (filePath, file, i, length) {
-                return '<script src="' + filePath.replace('/demo/','') + '"></script>';
+                return '<script src="' + filePath.replace('/www/','') + '"></script>';
             }
         };
 
@@ -100,7 +100,7 @@ module.exports = function () {
     config.getInjectCSSOptions = function () {
         var options = {
             transform: function (filePath, file, i, length) {
-                return '<link rel="stylesheet" href="' + filePath.replace('/demo/', '') + '"/>';
+                return '<link rel="stylesheet" href="' + filePath.replace('/www/', '') + '"/>';
             }
         };
 

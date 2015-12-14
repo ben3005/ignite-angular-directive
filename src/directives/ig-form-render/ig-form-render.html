@@ -1,11 +1,5 @@
-<!--
-    
-    delegate-handle="ig-form-slide-box" class="ig-slide-box" show-pager="false" on-slide-changed="FormRender.updateSlideIndex($index)"
-
-     class="ig-slider-slides"
--->
-<ion-slides options="::form.swiperOptions" slider="form.slider">
-    <ion-slide-page ng-repeat="section in ::form.Sections">
+<ion-slides options="::FormRender.swiperOptions" slider="FormRender.slider">
+    <ion-slide-page ng-repeat="section in ::FormRender.form.Sections track by $index">
         <ig-section-render section="::section"></ig-section-render>
     </ion-slide-page>
 </ion-slides>

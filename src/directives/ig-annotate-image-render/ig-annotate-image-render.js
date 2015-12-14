@@ -76,6 +76,12 @@
 
                         controller.toggleLock = function () {
                             controller.locked = !controller.locked;
+                            if (controller.locked) {
+                                scope.$emit('ig-enable-slide');
+                            }
+                            else {
+                                scope.$emit('ig-disable-slide');
+                            }
                             controller.annotateLock();
                         };
 

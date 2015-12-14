@@ -1,3 +1,5 @@
 {
-	"documentRoot": "demo"
+"name": "ignite-angular-directive",
+  "app_id": "",
+	"documentRoot": "www"
 }

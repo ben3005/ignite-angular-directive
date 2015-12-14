@@ -2,13 +2,13 @@
   "name": "ignite-angular-directive",
   "private": true,
   "dependencies": {
-    "ionic": "^1.2.0",
+    "ionic": "driftyco/ionic-bower#master",
     "signature_pad": "^1.5.2"
   },
   "overrides": {
     "ionic": {
       "main": [
-        "release/js/ionic.bundle.js"
+        "js/ionic.bundle.js"
       ]
     },
     "signature_pad": {
